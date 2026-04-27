@@ -23,6 +23,10 @@ describe('Funcionalidade: Catalogo de livros', () => {
     it ('Deve clicar no terceiro botão adicionar à cesta', () => {
     cy.get('.btn-primary').eq(2).click()
     });
+    
+    it ('Deve clicar no sexto botão adicionar à cesta', () => {
+    cy.get('.btn-primary').eq(5).click()
+    });
 
     it ('Deve clicar no nome d livro e ser redirecionado para a tela do livro', () => {
     cy.contains ('Dom Casmurro').click()
