@@ -1,9 +1,10 @@
 /// <reference types ="cypress"/>
 import { faker } from '@faker-js/faker';
+import cadastroPages from '../support/pages/cadastro-pages';
 
 describe('Funcionalidade: Cadastro Hub de Leitura', () => {
     beforeEach(() => {
-        cy.visit('register.html')
+        cadastroPages.visitarPaginaCadastro()
     });
     it('Deve fazer cadastro com sucesso usando função JS', () => {
         let email = `teste${Date.now()}@teste.com`
@@ -37,4 +38,9 @@ describe('Funcionalidade: Cadastro Hub de Leitura', () => {
         cy.preencherCadastro('Amanda Fugii',email,'13996968989','Senha123','Senha123',
         )
 });
+
+    it.only('Deve preencher cadastro com sucesso - Usando Page Objects', () => {
+       cadastroPages.preencherCadastro('Amanda Fugii','teste100@teste.com','11998989898','Teste123','Teste123')
+       cy.url().should('include','dashboard')
+    })
 });

@@ -7,7 +7,14 @@
   "categoria": "Romance"
  },
 
- {"livro": "O Robbit",
+ {"livro": "O Hobbit",
   "categoria": "Aventura"
+ },
+  {"livro": "Harry Potter e a Pedra Filosofal",
+  "categoria": "Fantasia"
+},
+{"livro": "O Código Da Vinci",
+  "categoria": "Mistério"
 }
+
 ]
