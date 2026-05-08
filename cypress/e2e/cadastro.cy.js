@@ -39,8 +39,14 @@ describe('Funcionalidade: Cadastro Hub de Leitura', () => {
         )
 });
 
-    it.only('Deve preencher cadastro com sucesso - Usando Page Objects', () => {
-       cadastroPages.preencherCadastro('Amanda Fugii','teste100@teste.com','11998989898','Teste123','Teste123')
+    it('Deve preencher cadastro com sucesso - Usando Page Objects', () => {
+        let email = `teste${Date.now()}@teste.com`
+        cadastroPages.preencherCadastro('Amanda Fugii',email,'11998989898','Teste123','Teste123')
        cy.url().should('include','dashboard')
     })
+    it ('Deve validar mensagem ao tentar cadastrar sem preencher nome', () => {
+        cadastroPages.preencherCadastro('','teste@teste.com','141414141414','Teste123','Teste123')
+        cy.get(':nth-child(1) > .invalid-feedback').should('contain', 'Nome deve ter pelo menos 2 caracteres')
+    });
+
 });
